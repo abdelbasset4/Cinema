@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('parts/header.ejs') %> 
+</head>
+<body>
+    <%- include('parts/nav.ejs') %> 
+    <div class="container">
+        <form action="film" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">titre</label>
+                <input type="text" class="form-control" id="titre" name="titre" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">titre original</label>
+                <input type="text" class="form-control" id="titre-original" name="titre_original" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">realisateur</label>
+                <input type="text" class="form-control" id="realisateur" name="realisateur" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">payee dorigine</label>
+                <input type="text" class="form-control" id="payee-dorigine" name="payee_dorigine" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">duree</label>
+                <input type="text" class="form-control" id="duree" name="duree" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">anne</label>
+                <input type="text" class="form-control" id="anne" name="anne" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">distributeur</label>
+                <input type="text" class="form-control" id="distributeur" name="distributeur" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">synopsis</label>
+                <input type="text" class="form-control" id="synopsis" name="synopsis" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">image</label>
+                <!-- <input type="text" class="form-control" id="image" name="image" placeholder=""> -->
+                <input type="file" class="form-control" name="image" placeholder="Image">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">trailler</label>
+                <input type="text" class="form-control" id="trailler" name="trailler" placeholder="">
+            </div>
+            <input type="submit" class="btn btn-primary btn-block mb-4" value="Ajoute">
+        </form>
+    </div>
+    
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>    

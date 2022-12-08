@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('parts/header.ejs') %> 
+</head>
+<body>
+    
+    <%- include('parts/nav.ejs') %> 
+    <div class="container">
+        <form action="actor" method="post">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Nom Actor</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Country</label>
+                <input type="text" class="form-control" id="country" name="country" placeholder="">
+            </div>
+            <input type="submit" class="btn btn-primary btn-block mb-4" value="Ajoute">
+        </form>
+    </div>
+    <div class="container">
+        <table class="table table-primary ">
+            <thead>
+
+                <td>Id</td>
+                <td>Nom</td>
+                <td>Country</td>
+
+            </thead>
+            <tbody>
+                <% result.forEach((elem,index)=>{ %>
+                    <tr>
+                        <td><%= index %> </td>
+                        <td><%= elem.name %> </td>
+                        <td><%= elem.country %> </td>
+                        
+                    </tr>
+                
+                
+                <% }) %>      
+            </tbody>
+        </table>
+    </div>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>    

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('parts/header.ejs') %> 
+</head>
+<body>
+    
+    <%- include('parts/nav.ejs') %> 
+    <div class="container">
+        <form action="salle" method="post">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Nom Salle</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Wilaya</label>
+                <input type="text" class="form-control" id="wilaya" name="wilaya" placeholder="">
+            </div>
+            <input type="submit" class="btn btn-primary btn-block mb-4" value="Ajoute">
+        </form>
+    </div>
+    <div class="container">
+        <table class="table table-primary ">
+            <thead>
+
+                <td>Id</td>
+                <td>Salle</td>
+                <td>Wilaya</td>
+
+            </thead>
+            <tbody>
+                <% result.forEach((elem,index)=>{ %>
+                    <tr>
+                        <td><%= index %> </td>
+                        <td><%= elem.nom %> </td>
+                        <td><%= elem.wilaya %> </td>
+                        
+                    </tr>
+                
+                
+                <% }) %>      
+            </tbody>
+        </table>
+    </div>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>    
