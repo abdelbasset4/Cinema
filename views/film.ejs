@@ -6,30 +6,37 @@
 <body>
     <%- include('parts/nav.ejs') %> 
     <div class="container">
-        <form action="film" method="post" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">titre</label>
-                <input type="text" class="form-control" id="titre" name="titre" placeholder="">
+        <h1 class="text-center fs-1 fw-bold m-3 text-danger">Ajoute Film</h1>
+        <form action="film" method="post" enctype="multipart/form-data" id="film-form">
+            <div class="mb-3 d-flex gap-4">
+                <div class="mb-3 w-50">
+                    <label for="exampleFormControlInput1" class="form-label">titre</label>
+                    <input type="text" class="form-control" id="titre" name="titre" placeholder="">
+                </div>
+                <div class="mb-3 w-50">
+                    <label for="exampleFormControlInput1" class="form-label">titre original</label>
+                    <input type="text" class="form-control" id="titre-original" name="titre_original" placeholder="">
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">titre original</label>
-                <input type="text" class="form-control" id="titre-original" name="titre_original" placeholder="">
+            <div class="mb-3 d-flex gap-4">
+                <div class="mb-3 w-50">
+                    <label for="exampleFormControlInput1" class="form-label">realisateur</label>
+                    <input type="text" class="form-control" id="realisateur" name="realisateur" placeholder="">
+                </div>
+                <div class="mb-3 w-50">
+                    <label for="exampleFormControlInput1" class="form-label">payee dorigine</label>
+                    <input type="text" class="form-control" id="payee-dorigine" name="payee_dorigine" placeholder="">
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">realisateur</label>
-                <input type="text" class="form-control" id="realisateur" name="realisateur" placeholder="">
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">payee dorigine</label>
-                <input type="text" class="form-control" id="payee-dorigine" name="payee_dorigine" placeholder="">
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">duree</label>
-                <input type="text" class="form-control" id="duree" name="duree" placeholder="">
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">anne</label>
-                <input type="text" class="form-control" id="anne" name="anne" placeholder="">
+            <div class="mb-3 d-flex gap-4">
+                <div class="mb-3 w-50">
+                    <label for="exampleFormControlInput1" class="form-label">duree</label>
+                    <input type="text" class="form-control" id="duree" name="duree" placeholder="">
+                </div>
+                <div class="mb-3 w-50">
+                    <label for="exampleFormControlInput1" class="form-label">anne</label>
+                    <input type="number" class="form-control" id="anne" name="anne" placeholder="">
+                </div>
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">distributeur</label>
@@ -48,10 +55,21 @@
                 <label for="exampleFormControlInput1" class="form-label">trailler</label>
                 <input type="text" class="form-control" id="trailler" name="trailler" placeholder="">
             </div>
-            <input type="submit" class="btn btn-primary btn-block mb-4" value="Ajoute">
+            <!-- <input  class="btn btn-primary btn-block mb-4 add-film" value="Ajoute"> -->
+            <button class="btn btn-primary btn-block mb-4 add-film"> Ajoute</button>
         </form>
     </div>
     
     <script src="/js/bootstrap.min.js"></script>
+    <script>
+        let titre = document.getElementById('titre')
+        let submitBtn = document.querySelector('.add-film');
+        let form = document.getElementById('film-form');
+        form.addEventListener('submit',()=>{
+            // localStorage.clear();
+            localStorage.setItem('titre',titre.value);
+            form.submit();
+        })
+    </script>
 </body>
 </html>    

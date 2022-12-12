@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('parts/header.ejs') %> 
+</head>
+<body>
+    
+    <%- include('parts/nav.ejs') %> 
+    <div class="container">
+        <h1 class="text-center fs-1 fw-bold m-3 text-danger">Ajoute Roles</h1>
+        <form action="role" method="post">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Film</label>
+                    <input type="text"  id="film" name="film">
+                </div>
+                <div class="bigRole">
+                    <div class="roleBox">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Actor</label>
+                            <select class="form-select" aria-label="Default select example" name="actor">
+                                <% resultActor.forEach((elem,index)=>{ %>
+                                    <option value="<%= elem.id %>"><%= elem.name %></option>
+                                <% }) %>  
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Role</label>
+                            <input type="text" class="form-control" id="role" name="role" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <!-- <input type="submit" class="btn btn-primary btn-block mb-4 submit-role" value="Ajoute"> -->
+                <button class="btn btn-primary btn-block mb-4 submit-role">Ajoute</button>
+            </form>
+            <button class="btn btn-success btn-block mb-4 add-role">Add Role</button>
+    </div>
+    
+    <script src="/js/bootstrap.min.js"></script>
+    <script>
+        let film = document.querySelector('#film');
+        let addRole = document.querySelector('.add-role');
+        let submitRole = document.querySelector('.submit-role');
+        let roleBox= document.querySelectorAll('.roleBox');
+        let roleBoxx= document.querySelector('.roleBox');
+        let big= document.querySelector('.bigRole');
+        let form = document.querySelector('form');
+        addRole.addEventListener('click',(e)=>{
+            e.preventDefault();
+            let cloneBox = roleBoxx.cloneNode(true);
+            big.appendChild(cloneBox);
+        })
+        submitRole.addEventListener('click',(e)=>{
+            form.submit();
+        })
+        
+        let titre = localStorage.getItem('titre');
+        film.value = titre;
+    </script>
+</body>
+</html>    

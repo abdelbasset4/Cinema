@@ -9,11 +9,13 @@ class FilmController{
             })
         }
     }
-    static async addFilm(req, res) { 
+    static async addFilm(req, res,next) { 
         req.body.image = req.file.filename;
         const result = await Film.createFilm(req.body.titre,req.body.titre_original,req.body.realisateur,req.body.payee_dorigine,req.body.duree,req.body.anne,req.body.distributeur,req.body.synopsis,req.body.image,req.body.trailler);
         if (result) {
-            res.redirect('/film')
+            res.redirect('/role')
+            req.body.titre = req.body.titre
+            next();
         }
     }
 }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('parts/header.ejs') %> 
+</head>
+<body>
+    
+    <%- include('parts/nav.ejs') %> 
+    <div class="container">
+        <h1 class="text-center fs-1 fw-bold m-3 text-danger">Ajoute Film et Salle</h1>
+        <form action="show" method="post">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Cinema</label>
+                <select class="form-select" aria-label="Default select example" name="cinema">
+                    <% resultSalle.forEach((elem,index)=>{ %>
+                        <option value="<%= elem.id %>"><%= elem.nom %></option>
+                    
+                    <% }) %>  
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Film</label>
+                <select class="form-select cinema" aria-label="Default select example" name="film">
+                    <% resultFilm.forEach((elem,index)=>{ %>
+                        <option value="<%= elem.titre %>"><%= elem.titre %></option>
+                    
+                    <% }) %>  
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Date</label>
+                <input type="date" name="dateShow" id="dateShow">
+            </div>
+            <input type="submit" class="btn btn-primary btn-block mb-4" value="Ajoute">
+        </form>
+    </div>
+    <div class="container">
+        <table class="table table-primary ">
+            <thead>
+
+                <td>Id</td>
+                <td>Ciname</td>
+                <td>Film</td>
+
+            </thead>
+            <tbody>
+                <% result.forEach((elem,index)=>{ %>
+                    <tr>
+                        <td><%= index %> </td>
+                        <td><%= elem.nom %> </td>
+                        <td><%= elem.titre %> </td>
+                        
+                    </tr>
+                
+                
+                <% }) %>      
+            </tbody>
+        </table>
+    </div>
+    <script src="/js/bootstrap.min.js"></script>
+    <script>
+    </script>
+</body>
+</html>    
