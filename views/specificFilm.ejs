@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('parts/header.ejs') %> 
+    </head>
+<body>
+    <header>
+      <%- include('parts/main-page-nav') %> 
+    </header>
+    <main>
+        <div class="container-md py-5 mt-5">
+            <div class="row">
+                <div class="col-sm-4">
+                    <picture class="poster-container mb-5">
+                        <img src="/images/<%= specificFilm.image %>" alt="" srcset="">
+                    </picture>
+                </div>
+                <div class="col-sm-8">
+                    <h2 class="title mb-3"><%=specificFilm.titre %></h2>
+                    <p ><span class="fw-bold">realisateur :</span> <%= specificFilm.realisateur%></p>
+                    <p><span class="fw-bold">duree :</span> <%= specificFilm.duree%> | <span class="fw-bold"> anne :</span> <%= specificFilm.anne%></p>
+                    <p><span class="fw-bold">distributeur :</span> <%= specificFilm.distributeur%></p>
+                    <h4>synopsis : </h4>
+                    <p class="my-2"><%=specificFilm.synopsis%></p>
+                </div>
+            </div>
+            <iframe src="<%=specificFilm.trailler%>" title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="mt-5 py-3 tailler-iframe"></iframe>
+        </div>
+    </main>
+</body>
+</html>

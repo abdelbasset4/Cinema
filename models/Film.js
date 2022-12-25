@@ -21,5 +21,14 @@ class Film{
             })
         })
     }
+    static async getShowedFilms(){
+        return new Promise((res , rej) => {
+            db.query('SELECT * FROM show_film , film WHERE show_film.titre_film = film.titre ', [], (err,result) => {
+                if (!err) {
+                    res(result);
+                }
+            })
+        })
+    }
 }
 module.exports = Film;
