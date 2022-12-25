@@ -1,0 +1,129 @@
+
+.home-header{
+    background:url('/imgs/439885.jpg') center center/cover;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    place-content: center;
+}
+
+header nav{
+    z-index: 999;
+    top: 0;
+}
+.header_dark{
+    position: absolute;
+    background-color: black;
+    opacity: .85;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+}
+
+header .header-content{
+    z-index: 3;
+    margin: auto;
+}
+header .header-content p{
+    width: min(100%,500px);
+}
+
+.sign-in-content{
+    display: grid;
+    min-height: 100vh;
+    place-content: center;
+}
+
+.sign-in-content form{
+    width: min(100%,400px);
+}
+
+header .user-profile{
+    position: relative;
+    width: 30px;
+height: 30px;
+background-color: red;
+color: black;
+color: aliceblue;
+border-radius: 50%;
+display: grid;
+place-items: center;
+font-weight: bold;
+}
+
+header .user-profile .dropdown{
+    position: absolute;
+    width: 100px;
+    padding: 10px;
+    top: 100%;
+    background-color: white;
+    color: black;
+    font-weight: normal;
+    border-radius: 5px;
+    list-style: none;
+    display: none;
+}
+header .user-profile .dropdown li span{
+    cursor: pointer;
+}
+header .user-profile:hover .dropdown{
+    display: block;
+}
+
+
+/* slider*/
+
+  .slider-container{
+    position:relative;
+    padding:30px;
+  }
+  .slider{
+    display:flex;
+    gap:10px;
+    position:relative;
+    overflow:hidden;
+    scroll-snap-type:x mandatory;
+  }
+  
+  
+  .slider .card{
+    position:relative;
+    width:300px;
+    flex-shrink:0;
+    scroll-snap-align:start ;
+    transition:.3s ease;
+  }
+  .poster-container{
+    position:relative;
+    width: 100%;
+    height: 400px;
+    display: block;
+
+  }
+  .poster-container img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+  }
+  
+  .slider-container .left-arrow,
+  .slider-container .right-arrow{
+    font-size: 30px;
+    border-radius:50%;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+  }
+  
+  .slider-container .right-arrow{
+    right:0;
+  }
+  .slider-container .left-arrow{
+    left:0;
+  }
+  
+  .tailler-iframe{
+    aspect-ratio: 16/9;
+    width: 100%;
+  }
