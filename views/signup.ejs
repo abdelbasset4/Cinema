@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('parts/header.ejs') %> 
+    </head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white position-fixed w-100">
+            <div class="container-md">
+                <a class="navbar-brand text-white fs-2" href="/">Cinema</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link text-white " href="#">fans movie</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-white" href="/signin">sign in</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-white" href="/signup">sign up</a>
+                    </li>
+                  </ul>
+              </div>
+            </div>
+          </nav>
+    </header>
+    <main >
+        <div class="container-md sign-in-content">
+            <h1>sign up</h1>
+            <form action="" method="post" class="signin-form">
+                <label for="username" class="py-2">username</label>
+                <input type="text" name="username" class="form-control">
+                <label for="username" class="py-2">password</label>
+                <input type="password" name="password" class="form-control">
+                <input type="submit" value="sign up" class="btn btn-danger mt-4">
+            </form>
+            <% if(duplicate) {%>
+              <span style="color:red;margin-top:20px;"><%= duplicate %></span>
+            <% } %>
+        </div>
+    </main>  
+</body>
+</html>
