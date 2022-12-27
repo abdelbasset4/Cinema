@@ -23,14 +23,14 @@ class FilmController{
         return res.json(showedFilms);
     }
 
-    static async getSpecificFilm(req , res){
+    static async getSpecificFilm(req , res ){
         const {filmTitle} = req.params;
-        console.log(req.params)
         const showedFilms = await Film.getShowedFilms();
-        const specificFilm = showedFilms.find(film => film.titre === filmTitle.replace('-',' '));
+        const specificFilm = showedFilms.find(film => film.titre === filmTitle.toString().replaceAll('-',' '));
         if(specificFilm){
-            res.render('specificFilm',{specificFilm})
+            res.render('specificFilm',{specificFilm});
         }
+        return 
     }
 }
 module.exports = FilmController;
