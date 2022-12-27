@@ -127,3 +127,36 @@ header .user-profile:hover .dropdown{
     aspect-ratio: 16/9;
     width: 100%;
   }
+
+
+  /* styling the stars */
+
+  .star-wrapper{
+    display:flex;
+    gap:20px;
+    transform:rotateY(180deg);
+    justify-content: end;
+  }
+  
+  .star-wrapper i{
+    font-size:36px;
+    color:#FFBA08;
+    cursor:pointer;
+  }
+  
+  .disable{
+    opacity:.3;
+  }
+  i:hover,
+  i:hover ~ i{
+    opacity:1;
+  }
+
+  /* alert */
+
+  .alert[data-state="hidden"]{
+    display: none;
+  }
+  .alert[data-state="showen"]{
+    display: block;
+  }
