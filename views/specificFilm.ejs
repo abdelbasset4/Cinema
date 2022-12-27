@@ -8,6 +8,7 @@
       <%- include('parts/main-page-nav') %> 
     </header>
     <main>
+      
         <div class="container-md py-5 mt-5">
             <div class="row">
                 <div class="col-sm-4">
@@ -22,11 +23,31 @@
                     <p><span class="fw-bold">distributeur :</span> <%= specificFilm.distributeur%></p>
                     <h4>synopsis : </h4>
                     <p class="my-2"><%=specificFilm.synopsis%></p>
+                    <div class="star-wrapper mt-4">
+                      <% if(stars) {%>
+                        <% for(let i=0 ; i < 3 - stars ; i++) {%>
+                          <i class="bi bi-star-fill disable star" data-value="<%= 3 -i %>"></i>
+                        <% } %>
+                        <% for(let i=0 ; i < stars ; i++) {%>
+                          <i class="bi bi-star-fill star" data-value="<%= stars - i %>"></i>
+                        <% } %>
+                      <% }else {%>
+                        <i class="bi bi-star-fill disable star" data-value="3"></i>
+                        <i class="bi bi-star-fill disable star" data-value="2"></i>
+                        <i class="bi bi-star-fill disable star" data-value="1"></i>
+                      <% } %>
+                    </div>
+                </div>
+                <div class="alert alert-danger" role="alert" data-state="hidden">
+                  you should be authenticated to leave a review
                 </div>
             </div>
             <iframe src="<%=specificFilm.trailler%>" title="YouTube video player" frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="mt-5 py-3 tailler-iframe"></iframe>
         </div>
+        
     </main>
+    <script src="/js/specificFilm.js"></script>
+    <script src="/js/logout.js"></script>
 </body>
 </html>
