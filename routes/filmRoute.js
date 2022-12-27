@@ -2,8 +2,9 @@ const route = require('express').Router()
 const bodyParser = require("body-parser");
 const multer = require('multer')
 const verifyRoleHandler = require("../middleware/verifyRoles");
-const verifyAuthHandler = require('../middleware/verifyUserAuth')
-const FilmController = require('../controllers/filmContoller')
+const {verifyAuthOnGet , verifyAuthOnPost} = require('../middleware/verifyUserAuth')
+const FilmController = require('../controllers/filmContoller');
+const reviewController = require('../controllers/reviewController');
 
 route.get('/', FilmController.getShowedFilms)
 route.post('/',verifyRoleHandler,bodyParser.urlencoded({ extended: true }),multer({
@@ -17,6 +18,7 @@ route.post('/',verifyRoleHandler,bodyParser.urlencoded({ extended: true }),multe
     })
 }).single("image"), FilmController.addFilm)
 
-route.get('/:filmTitle',verifyAuthHandler,FilmController.getSpecificFilm)
+route.get('/:filmTitle',verifyAuthOnGet,reviewController.showReview , FilmController.getSpecificFilm);
+route.put('/:filmTitle',verifyAuthOnPost,reviewController.leaveReview);
 
 module.exports = route
