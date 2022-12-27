@@ -11,6 +11,7 @@ const signinUser = async (req , res) => {
     if(user && user?.password === password){
         res.cookie('username',username,{httpOnly:true , maxAge : 1000 * 3600 * 24 * 10 , SameSite:'Strict'});
         res.cookie('role',user.role,{httpOnly:true , maxAge : 1000 * 3600 * 24 * 10 , SameSite:'Strict'});
+        res.cookie('userId',user.id,{httpOnly:true , maxAge : 1000 * 3600 * 24 * 10 , SameSite:'Strict'});
         return res.redirect('/')
     }else{
         res.render('signin',{error:'username or password is wrong'})
