@@ -69,7 +69,7 @@ function getShowedFilms(){
       const card = document.createElement("div");
       card.className = "card";
       card.innerHTML = `
-      <a href="/film/${film.titre.replace(' ','-')}"><picture class="poster-container">
+      <a href="/film/${film.titre.replaceAll(' ','-')}"><picture class="poster-container">
       <img src='/images/${film.image}' alt=''>
       </picture>
       <h6 class="mt-2 text-center">${film.titre}</h6></a>`;
@@ -78,3 +78,4 @@ function getShowedFilms(){
   })
 }
 getShowedFilms();
+
