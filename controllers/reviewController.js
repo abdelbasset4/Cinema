@@ -24,12 +24,12 @@ const showReview = async(req , res , next) => {
     if(userId){
         console.log("userid :  ",userId)
         try{
-
             const result = await Review.getReview(userId , filmTitle.replaceAll('-',' '));
-            const [{stars}] = result;
+            if(result){
+                const [{stars}] = result;
             console.log("result stars : ",stars)
             res.locals.stars = stars;
-        
+            }
         }catch(e){
             console.log(e)
         }
